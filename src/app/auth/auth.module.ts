@@ -10,7 +10,7 @@ import { AuthComponent } from '@app/auth/components/auth/auth.component';
 import { SignupFormComponent } from '@app/auth/components/signup-form/signup-form.component';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 import { ConfirmPasswordResetComponent } from './components/confirm-password-reset/confirm-password-reset.component';
-import { SharedModule } from '@shared';
+import { SharedModule } from 'src/app/shared';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({

@@ -8,13 +8,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { environment } from '@env/environment';
-import { RouteReusableStrategy, ApiPrefixInterceptor, ErrorHandlerInterceptor, SharedModule } from '@shared';
-import { AuthModule } from '@app/auth';
+import { RouteReusableStrategy, ApiPrefixInterceptor, ErrorHandlerInterceptor, SharedModule } from 'src/app/shared';
+import { AuthModule } from 'src/app/auth';
 import { HomeModule } from './home/home.module';
 import { ShellModule } from './shell/shell.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthInterceptor } from '@shared/auth.interceptor';
+import { AuthInterceptor } from 'src/app/shared/auth.interceptor';
 
 @NgModule({
   imports: [
@@ -29,7 +29,6 @@ import { AuthInterceptor } from '@shared/auth.interceptor';
     ShellModule,
     HomeModule,
     AuthModule,
-    NgbModule,
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],

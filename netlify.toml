@@ -12,3 +12,11 @@ command = "ng serve"
 targetPort = 4200
 publish = "dev"
 autoLaunch = true
+framework = "#auto"
+
+[[headers]]
+for = "/.netlify/identity/*"
+[headers.values]
+Access-Control-Allow-Origin = "*"
+Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+Access-Control-Allow-Headers = "Content-Type, Authorization"

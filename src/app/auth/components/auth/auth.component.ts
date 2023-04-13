@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Logger, UntilDestroy, untilDestroyed } from '@shared';
+import { Logger, UntilDestroy, untilDestroyed } from 'src/app/shared';
 import { AuthenticationService, LoginContext, SignupContext } from '@app/auth';
-import { ToastService } from '@shared/services/toast.service';
+import { ToastService } from '@app/shared/services/toast.service';
 
 const log = new Logger('Login');
 
-@UntilDestroy()
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
