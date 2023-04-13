@@ -1,46 +1,156 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { Credentials, CredentialsService } from './credentials.service';
+import GoTrue, { User } from 'gotrue-js';
+import { HttpClient } from '@angular/common/http';
 
 export interface LoginContext {
-  username: string;
+  email: string;
   password: string;
   remember?: boolean;
 }
 
-/**
- * Provides a base for authentication workflow.
- * The login/logout methods should be replaced with proper implementation.
- */
+export interface SignupContext {
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  constructor(private credentialsService: CredentialsService) {}
+  private apiUrl: string = 'https://tranquil-halva-766b1c.netlify.app/.netlify/identity';
+  private authClient: GoTrue;
 
-  /**
-   * Authenticates the user.
-   * @param context The login parameters.
-   * @return The user credentials.
-   */
-  login(context: LoginContext): Observable<Credentials> {
-    // Replace by proper authentication call
-    const data = {
-      username: context.username,
-      token: '123456',
-    };
-    this.credentialsService.setCredentials(data, context.remember);
-    return of(data);
+  constructor(private credentialsService: CredentialsService, private http: HttpClient) {
+    this.authClient = new GoTrue({
+      APIUrl: this.apiUrl,
+      setCookie: false,
+    });
   }
 
-  /**
-   * Logs out the user and clear credentials.
-   * @return True if the user was logged out successfully.
-   */
+  login(context: LoginContext): Observable<Credentials> {
+    return new Observable((observer) => {
+      this.authClient
+        .login(context.email, context.password)
+        .then((user) => {
+          const data: Credentials = {
+            email: user.email,
+            token: user.token.access_token,
+          };
+          this.credentialsService.setCredentials(data, context.remember);
+          observer.next(data);
+          observer.complete();
+        })
+        .catch((error) => {
+          console.error('Login error:', error);
+          observer.error(error);
+          observer.complete();
+        });
+    });
+  }
+
+  signup(context: SignupContext): Observable<any> {
+    return new Observable((observer) => {
+      this.authClient
+        .signup(context.email, context.password)
+        .then((user) => {
+          const data: Credentials = {
+            email: user.email,
+            token: user.token.access_token,
+          };
+          this.credentialsService.setCredentials(data);
+          observer.next(user);
+          observer.complete();
+        })
+        .catch((error) => {
+          console.error('Signup error:', error);
+          observer.error(error);
+          observer.complete();
+        });
+    });
+  }
+
   logout(): Observable<boolean> {
-    // Customize credentials invalidation here
-    this.credentialsService.setCredentials();
-    return of(true);
+    return new Observable((observer) => {
+      const user = this.authClient.currentUser();
+      if (user) {
+        user
+          .logout()
+          .then(() => {
+            this.credentialsService.setCredentials();
+            observer.next(true);
+            observer.complete();
+          })
+          .catch((error) => {
+            observer.error(error);
+            observer.complete();
+          });
+      } else {
+        this.credentialsService.setCredentials();
+        observer.next(true);
+        observer.complete();
+      }
+    });
+  }
+
+  requestPasswordReset(email: string): Observable<any> {
+    return new Observable((observer) => {
+      this.authClient
+        .requestPasswordRecovery(email)
+        .then(() => {
+          observer.next(true);
+          observer.complete();
+        })
+        .catch((error) => {
+          observer.error(error);
+          observer.complete();
+        });
+    });
+  }
+
+  confirmPasswordReset(token: string, newPassword: string): Observable<any> {
+    const apiUrl = this.apiUrl;
+    const headers = { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` };
+
+    return this.http.put(apiUrl, { password: newPassword }, { headers: headers });
+  }
+
+  updateUser(user: User, attributes: object): Observable<any> {
+    return new Observable((observer) => {
+      user
+        .update(attributes)
+        .then((updatedUser) => {
+          observer.next(updatedUser);
+          observer.complete();
+        })
+        .catch((error) => {
+          observer.error(error);
+          observer.complete();
+        });
+    });
+  }
+
+  getToken(): Observable<string> {
+    return new Observable((observer) => {
+      const user = this.authClient.currentUser();
+      if (user) {
+        user
+          .jwt()
+          .then((jwt) => {
+            observer.next(jwt);
+            observer.complete();
+          })
+          .catch((error) => {
+            observer.error(error);
+            observer.complete();
+          });
+      } else {
+        observer.error('No user is currently logged in.');
+        observer.complete();
+      }
+    });
   }
 }

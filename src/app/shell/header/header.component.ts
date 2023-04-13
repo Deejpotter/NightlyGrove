@@ -24,11 +24,11 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
+    this.authenticationService.logout().subscribe(() => this.router.navigate(['/auth'], { replaceUrl: true }));
   }
 
-  get username(): string | null {
+  get email(): string | null {
     const credentials = this.credentialsService.credentials;
-    return credentials ? credentials.username : null;
+    return credentials ? credentials.email : null;
   }
 }

@@ -27,6 +27,7 @@
       "@env/*": ["src/environments/*"]
     }
   },
+  "exclude": ["./cypress.config.ts"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "fullTemplateTypeCheck": true,

@@ -8,9 +8,9 @@
   "Logout": "Logout",
   "Password": "Password",
   "Password is required": "Password is required",
-  "Username": "Username",
-  "Username is required": "Username is required",
-  "Username or password incorrect.": "Username or password incorrect.",
+  "email": "email",
+  "email is required": "email is required",
+  "email or password incorrect.": "email or password incorrect.",
   "Remember me": "Remember me",
   "Version": "Version"
 }

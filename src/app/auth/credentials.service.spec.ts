@@ -24,11 +24,11 @@ describe('CredentialsService', () => {
   describe('setCredentials', () => {
     it('should authenticate user if credentials are set', () => {
       // Act
-      credentialsService.setCredentials({ username: 'me', token: '123' });
+      credentialsService.setCredentials({ email: 'me', token: '123' });
 
       // Assert
       expect(credentialsService.isAuthenticated()).toBe(true);
-      expect((credentialsService.credentials as Credentials).username).toBe('me');
+      expect((credentialsService.credentials as Credentials).email).toBe('me');
     });
 
     it('should clean authentication', () => {
@@ -41,7 +41,7 @@ describe('CredentialsService', () => {
 
     it('should persist credentials for the session', () => {
       // Act
-      credentialsService.setCredentials({ username: 'me', token: '123' });
+      credentialsService.setCredentials({ email: 'me', token: '123' });
 
       // Assert
       expect(sessionStorage.getItem(credentialsKey)).not.toBeNull();
@@ -50,7 +50,7 @@ describe('CredentialsService', () => {
 
     it('should persist credentials across sessions', () => {
       // Act
-      credentialsService.setCredentials({ username: 'me', token: '123' }, true);
+      credentialsService.setCredentials({ email: 'me', token: '123' }, true);
 
       // Assert
       expect(localStorage.getItem(credentialsKey)).not.toBeNull();

@@ -1,0 +1,23 @@
+<div class="container auth-container">
+  <div class="card auth-box">
+    <div class="card-body">
+      <h1 class="card-title text-center">Welcome</h1>
+      <ul class="nav nav-tabs custom-tabs">
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{ active: selectedTab === 'login' }" (click)="selectTab('login')">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{ active: selectedTab === 'signup' }" (click)="selectTab('signup')">Signup</a>
+        </li>
+      </ul>
+      <div class="tab-content mt-3">
+        <div class="tab-pane" [ngClass]="{ active: selectedTab === 'login' }">
+          <app-login-form *ngIf="selectedTab === 'login'" (onSubmit)="login($event)"></app-login-form>
+        </div>
+        <div class="tab-pane" [ngClass]="{ active: selectedTab === 'signup' }">
+          <app-signup-form *ngIf="selectedTab === 'signup'" (onSubmit)="signup($event)"></app-signup-form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

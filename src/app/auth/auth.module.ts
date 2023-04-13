@@ -6,10 +6,21 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { I18nModule } from '@app/i18n';
 import { AuthRoutingModule } from './auth-routing.module';
-import { LoginComponent } from './login.component';
+import { AuthComponent } from '@app/auth/components/auth/auth.component';
+import { SignupFormComponent } from '@app/auth/components/signup-form/signup-form.component';
+import { PasswordResetComponent } from './components/password-reset/password-reset.component';
+import { ConfirmPasswordResetComponent } from './components/confirm-password-reset/confirm-password-reset.component';
+import { SharedModule } from '@shared';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule, TranslateModule, NgbModule, I18nModule, AuthRoutingModule],
-  declarations: [LoginComponent],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule, NgbModule, I18nModule, AuthRoutingModule, SharedModule],
+  declarations: [
+    AuthComponent,
+    SignupFormComponent,
+    PasswordResetComponent,
+    ConfirmPasswordResetComponent,
+    LoginFormComponent,
+  ],
 })
 export class AuthModule {}

@@ -4,10 +4,10 @@
  */
 
 export class LoginPage {
-  url = '/login';
+  url = '/auth';
 
-  get usernameField() {
-    return cy.get('[formControlName="username"]');
+  get emailField() {
+    return cy.get('[formControlName="email"]');
   }
 
   get passwordField() {
@@ -19,7 +19,7 @@ export class LoginPage {
   }
 
   login() {
-    this.usernameField.type('test');
+    this.emailField.type('test');
     this.passwordField.type('123');
     this.loginButton.click();
   }

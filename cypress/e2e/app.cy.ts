@@ -11,7 +11,7 @@ describe('when the app loads', () => {
     app.navigateAndSetLanguage();
   });
 
-  it('should display the login page and log in', () => {
+  it('should display the auth page and log in', () => {
     cy.url().should('include', login.url);
     login.login();
   });

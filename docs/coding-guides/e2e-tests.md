@@ -35,7 +35,7 @@ If the UI changes, the fix only needs to be applied in one place.
 #### How to define a page object
 
 ```typescript
-// login.po.ts
+// auth.po.ts
 export class LoginPage {
   get emailInput() {
     return cy.get('input[name=^"email"]');
@@ -46,7 +46,7 @@ export class LoginPage {
   }
 
   get loginButton() {
-    return cy.get('button[(click)^="login"]');
+    return cy.get('button[(click)^="auth"]');
   }
 
   get registerButton() {
@@ -66,8 +66,8 @@ export class LoginPage {
 #### How to use a page object
 
 ```typescript
-// login.e2e-spec.ts
-import { LoginPage } from './login.po';
+// auth.e2e-spec.ts
+import { LoginPage } from './auth.po';
 
 describe('Login', () => {
   let page: LoginPage;

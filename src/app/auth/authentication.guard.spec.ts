@@ -37,7 +37,7 @@ describe('AuthenticationGuard', () => {
     expect(authenticationGuard.canActivate(new ActivatedRouteSnapshot(), mockSnapshot)).toBe(true);
   });
 
-  it('should return false and redirect to login if user is not authenticated', () => {
+  it('should return false and redirect to auth if user is not authenticated', () => {
     // Arrange
     credentialsService.credentials = null;
 
@@ -45,7 +45,7 @@ describe('AuthenticationGuard', () => {
     const result = authenticationGuard.canActivate(new ActivatedRouteSnapshot(), mockSnapshot);
 
     // Assert
-    expect(mockRouter.navigate).toHaveBeenCalledWith(['/login'], {
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/auth'], {
       queryParams: { redirect: undefined },
       replaceUrl: true,
     });
@@ -58,7 +58,7 @@ describe('AuthenticationGuard', () => {
     mockSnapshot.url = '/about';
 
     authenticationGuard.canActivate(new ActivatedRouteSnapshot(), mockSnapshot);
-    expect(mockRouter.navigate).toHaveBeenCalledWith(['/login'], {
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/auth'], {
       queryParams: { redirect: mockRouter.url },
       replaceUrl: true,
     });

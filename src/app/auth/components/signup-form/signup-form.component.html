@@ -1,0 +1,73 @@
+<div class="m-3">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit.emit(signupForm.value)">
+    <label class="d-block my-3">
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        autocomplete="email"
+        [placeholder]="'Email' | translate"
+        required
+      />
+      <span hidden translate>Email</span>
+      <small
+        [hidden]="signupForm.controls['email'].valid || signupForm.controls['email'].untouched"
+        class="text-danger"
+        translate
+      >
+        Email is required
+      </small>
+    </label>
+
+    <label class="d-block mb-3">
+      <input
+        type="password"
+        class="form-control"
+        formControlName="password"
+        autocomplete="new-password"
+        [placeholder]="'Password' | translate"
+        required
+      />
+      <span hidden translate>Password</span>
+      <small
+        [hidden]="signupForm.controls['password'].valid || signupForm.controls['password'].untouched"
+        class="text-danger"
+        translate
+      >
+        Password is required
+      </small>
+    </label>
+
+    <label class="d-block mb-3">
+      <input
+        type="password"
+        class="form-control"
+        formControlName="confirmPassword"
+        autocomplete="new-password"
+        [placeholder]="'Confirm Password' | translate"
+        required
+      />
+      <span hidden translate>Confirm Password</span>
+      <small
+        [hidden]="signupForm.controls['confirmPassword'].valid || signupForm.controls['confirmPassword'].untouched"
+        class="text-danger"
+        translate
+      >
+        Confirm Password is required
+      </small>
+      <small
+        [hidden]="!signupForm.hasError('passwordsNotMatch') || signupForm.controls['confirmPassword'].untouched"
+        class="text-danger"
+        translate
+      >
+        Passwords do not match
+      </small>
+    </label>
+
+    <div class="m-3">
+      <button class="btn btn-primary w-100" type="submit" [disabled]="signupForm.invalid">
+        <span translate>Signup</span>
+      </button>
+    </div>
+  </form>
+</div>

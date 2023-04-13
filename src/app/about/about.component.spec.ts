@@ -1,3 +1,4 @@
+// @ts-ignore: TS2339
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AboutComponent } from './about.component';

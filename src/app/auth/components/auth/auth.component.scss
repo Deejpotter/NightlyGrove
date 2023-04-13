@@ -1,0 +1,21 @@
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 400px;
+}
+
+.custom-tabs .nav-link {
+  cursor: pointer;
+}
+
+.custom-tabs .nav-link.active {
+  font-weight: bold;
+  border-bottom: 2px solid #007bff;
+  color: #007bff;
+}
