@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Logger, UntilDestroy, untilDestroyed } from 'src/app/shared';
 import { AuthenticationService, LoginContext, SignupContext } from '@app/auth';
 import { ToastService } from '@app/shared/services/toast.service';
+import next from 'ajv/dist/vocabularies/next';
 
 const log = new Logger('Login');
 
@@ -35,18 +36,16 @@ export class AuthComponent implements OnInit {
 
   login(context: LoginContext) {
     this.toastService.show('Login successful', 'success');
-    this.authenticationService.login(context).subscribe(
-      (credentials) => {
+    this.authenticationService.login(context).subscribe({
+      next: (credentials) => {
         console.log('Login successful', credentials);
         this.toastService.show('Login successful', 'success');
-        // Redirect or perform other actions after successful login
       },
-      (error) => {
+      error: (error) => {
         console.log('Login failed', error);
         this.toastService.show('Login failed', 'danger');
-        // Show an error message or perform other actions on login failure
-      }
-    );
+      },
+    });
   }
 
   signup(context: SignupContext) {

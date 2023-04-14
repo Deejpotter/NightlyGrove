@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+
+import { from, Observable, tap, throwError } from 'rxjs';
 
 import { Credentials, CredentialsService } from './credentials.service';
 import GoTrue, { User } from 'gotrue-js';
 import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface LoginContext {
   email: string;
@@ -24,7 +27,12 @@ export class AuthenticationService {
   private apiUrl: string = 'https://tranquil-halva-766b1c.netlify.app/.netlify/identity';
   private authClient: GoTrue;
 
-  constructor(private credentialsService: CredentialsService, private http: HttpClient) {
+  constructor(
+    private credentialsService: CredentialsService,
+    private http: HttpClient,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.authClient = new GoTrue({
       APIUrl: this.apiUrl,
       setCookie: false,
@@ -34,7 +42,7 @@ export class AuthenticationService {
   login(context: LoginContext): Observable<Credentials> {
     return new Observable((observer) => {
       this.authClient
-        .login(context.email, context.password)
+        .login(context.email, context.password, context.remember)
         .then((user) => {
           const data: Credentials = {
             email: user.email,
@@ -43,6 +51,10 @@ export class AuthenticationService {
           this.credentialsService.setCredentials(data, context.remember);
           observer.next(data);
           observer.complete();
+
+          // Redirect to the desired page after login
+          const redirectUrl = this.route.snapshot.queryParams['redirect'] || '/';
+          this.router.navigateByUrl(redirectUrl);
         })
         .catch((error) => {
           console.error('Login error:', error);
@@ -57,11 +69,6 @@ export class AuthenticationService {
       this.authClient
         .signup(context.email, context.password)
         .then((user) => {
-          const data: Credentials = {
-            email: user.email,
-            token: user.token.access_token,
-          };
-          this.credentialsService.setCredentials(data);
           observer.next(user);
           observer.complete();
         })
@@ -134,23 +141,14 @@ export class AuthenticationService {
   }
 
   getToken(): Observable<string> {
-    return new Observable((observer) => {
-      const user = this.authClient.currentUser();
-      if (user) {
-        user
-          .jwt()
-          .then((jwt) => {
-            observer.next(jwt);
-            observer.complete();
-          })
-          .catch((error) => {
-            observer.error(error);
-            observer.complete();
-          });
-      } else {
-        observer.error('No user is currently logged in.');
-        observer.complete();
-      }
-    });
+    const user = this.authClient.currentUser();
+    if (!user) {
+      return throwError('No user is currently logged in.');
+    }
+
+    return from(user.jwt()).pipe(
+      tap((jwt: string) => this.credentialsService.setToken(jwt)),
+      catchError((error: any) => throwError(error))
+    );
   }
 }

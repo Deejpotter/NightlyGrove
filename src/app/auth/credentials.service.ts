@@ -16,6 +16,7 @@ const credentialsKey = 'credentials';
   providedIn: 'root',
 })
 export class CredentialsService {
+  private static readonly tokenKey = 'authToken';
   private _credentials: Credentials | null = null;
 
   constructor() {
@@ -57,6 +58,13 @@ export class CredentialsService {
     } else {
       sessionStorage.removeItem(credentialsKey);
       localStorage.removeItem(credentialsKey);
+    }
+  }
+
+  setToken(token: string): void {
+    if (this._credentials) {
+      this._credentials.token = token;
+      localStorage.setItem(CredentialsService.tokenKey, JSON.stringify(this._credentials));
     }
   }
 }

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { Shell } from '@app/shell/shell.service';
 import { AuthComponent } from '@app/auth/components/auth/auth.component';
-import { SignupFormComponent } from '@app/auth/components/signup-form/signup-form.component';
 import { PasswordResetComponent } from '@app/auth/components/password-reset/password-reset.component';
 import { ConfirmPasswordResetComponent } from '@app/auth/components/confirm-password-reset/confirm-password-reset.component';
 

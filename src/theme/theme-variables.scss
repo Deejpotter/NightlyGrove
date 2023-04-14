@@ -7,28 +7,28 @@ $gray-200: #e9ecef;
 $gray-300: #dee2e6;
 $gray-400: #ced4da;
 $gray-500: #adb5bd;
-$gray-600: #868e96;
+$gray-600: #6c757d;
 $gray-700: #495057;
-$gray-800: #181821;
+$gray-800: #343a40;
 $gray-900: #212529;
 $black: #000;
 
 $dark-blue: #0d233f;
 $dark-green: #003d2d;
 $accent-gold: #d4af37;
-$accent-white: #ffffff;
-$dark-blue-gray: #2c3e50;
+$accent-silver: #c0c0c0;
+$deep-purple: #4b0082;
 $moon-color: #f1c40f;
 
 $theme-colors: (
-  primary: $dark-blue,
+  primary: $deep-purple,
   secondary: $dark-green,
   success: $green,
   info: $cyan,
   warning: $yellow,
   danger: $red,
-  light: $accent-gold,
-  dark: $dark-blue-gray,
+  light: $accent-silver,
+  dark: $black,
 );
 $spacer: 2rem;
 $font-family-display: "Fredoka One", "Nunito", "Georgia", "Courier", "Times New Roman";
@@ -39,7 +39,8 @@ $border-radius-sm: 0.3rem;
 $enable-shadows: true;
 $enable-gradients: true;
 $jumbotron-padding: 3rem;
-$body-bg: $dark-blue-gray;
+$body-bg: $black;
+$body-color: $gray-500; // Updated text color for improved readability
 $headings-font-family: $font-family-display;
 $link-color: $moon-color;
 $link-hover-color: darken($moon-color, 15%);
