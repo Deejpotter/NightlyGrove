@@ -1,0 +1,38 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+// Use the custom brand colors
+$dark-blue: #0d233f;
+$dark-gray: #2f2f2f;
+$accent-gold: #d4af37;
+$accent-silver: #c0c0c0;
+$white: #ffffff;
+
+.product-card {
+  background-color: rgba($white, 0.8); // Add a semi-transparent white background
+  color: $dark-gray; // Set the text color to a darker shade
+
+  .card-title {
+    color: $dark-gray; // Set the title color to a darker shade
+  }
+
+  .card-text {
+    color: $dark-gray; // Set the description color to a slightly lighter shade
+  }
+
+  .price {
+    color: $accent-gold; // Set the price color to the accent gold
+    font-weight: bold;
+  }
+
+  .btn-primary {
+    background-color: $accent-gold; // Set the button background color to the accent gold
+    border-color: $accent-gold; // Set the button border color to the accent gold
+
+    &:hover,
+    &:focus {
+      background-color: darken($accent-gold, 5%); // Darken the background color on hover and focus
+      border-color: darken($accent-gold, 5%); // Darken the border color on hover and focus
+    }
+  }
+}

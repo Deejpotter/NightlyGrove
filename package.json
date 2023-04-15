@@ -42,7 +42,7 @@
     "gotrue-js": "^0.9.29",
     "jquery": "^3.6.4",
     "netlify-identity-widget": "^1.9.2",
-    "ngx-owl-carousel-o": "^15.0.0",
+    "ngx-owl-carousel-o": "^14.0.1",
     "popper.js": "^1.16.1",
     "printful-js": "^1.0.3",
     "rxjs": "^7.5.0",
