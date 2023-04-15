@@ -1,0 +1,15 @@
+<section class="py-5 bg-dark text-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-4">Featured Products</h2>
+      <p class="lead">Discover our latest and most popular styles</p>
+    </div>
+    <owl-carousel-o [options]="customOptions" class="owl-theme">
+      <ng-container *ngFor="let product of featuredProducts">
+        <ng-template carouselSlide>
+          <app-product-card [product]="product"></app-product-card>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+</section>

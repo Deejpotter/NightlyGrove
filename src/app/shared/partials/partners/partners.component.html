@@ -1,0 +1,15 @@
+<div *ngFor="let partner of partners">
+  <div class="card bg-accent-silver text-dark">
+    <img
+      src="{{ partner.logoUrl }}"
+      alt="{{ partner.name }}"
+      class="card-img-top p-3"
+      style="max-height: 150px; object-fit: contain"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ partner.name }}</h5>
+      <p class="card-text">{{ partner.description }}</p>
+      <a href="{{ partner.website }}" target="_blank" class="btn btn-dark-blue">Visit Website</a>
+    </div>
+  </div>
+</div>

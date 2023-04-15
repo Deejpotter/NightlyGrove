@@ -7,7 +7,7 @@ export class AppSharedPage {
   async navigateAndSetLanguage() {
     // Forces default language
     this.visit();
-    cy.window().then((window) => {
+    cy.window().then((window: Cypress.AUTWindow) => {
       window.eval(`localStorage.setItem('language', 'en-US')`);
     });
   }

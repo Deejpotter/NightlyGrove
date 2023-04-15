@@ -1,0 +1,77 @@
+@import "src/theme/theme-variables";
+
+$trans: rgba(0, 0, 0, 0);
+
+/*--------- Gradients ---------*/
+.success-trans-gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba($accent-gold, 1) 20%,
+    rgba($accent-gold, 0.8) 40%,
+    $trans 70%,
+    $trans 100%
+  );
+}
+
+.primary-trans-gradient {
+  background: linear-gradient(to bottom, rgba($dark-blue, 1) 20%, rgba($dark-blue, 0.8) 40%, $trans 70%, $trans 100%);
+}
+
+.secondary-trans-gradient {
+  background: linear-gradient(to bottom, rgba($dark-gray, 1) 20%, rgba($dark-gray, 0.8) 40%, $trans 70%, $trans 100%);
+}
+
+.info-trans-gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba($accent-silver, 1) 20%,
+    rgba($accent-silver, 0.8) 40%,
+    $trans 70%,
+    $trans 100%
+  );
+}
+
+.warning-trans-gradient {
+  background: linear-gradient(to bottom, rgba($light, 1) 20%, rgba($light, 0.8) 40%, $trans 70%, $trans 100%);
+}
+
+/*--------- Reverse Gradients ---------*/
+.trans-success-gradient {
+  background: linear-gradient(to bottom, $trans 100%, rgba($accent-gold, 0.8) 60%, rgba($accent-gold, 1) 40%);
+}
+
+.trans-primary-gradient {
+  background: linear-gradient(to bottom, $trans 100%, rgba($dark-blue, 0.8) 60%, rgba($dark-blue, 1) 40%);
+}
+
+.trans-secondary-gradient {
+  background: linear-gradient(to bottom, $trans 100%, rgba($dark-gray, 0.8) 60%, rgba($dark-gray, 1) 40%);
+}
+
+.trans-info-gradient {
+  background: linear-gradient(to bottom, $trans 100%, rgba($accent-silver, 0.8) 60%, rgba($accent-silver, 1) 40%);
+}
+
+.trans-warning-gradient {
+  background: linear-gradient(to bottom, $trans 100%, rgba($light, 0.8) 60%, rgba($light, 1) 40%);
+}
+
+/*--------- Animations ---------*/
+.animate-background {
+  animation: gradient-animation 5s ease-in-out infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 100% 60%;
+    background-size: 200% 200%;
+  }
+  50% {
+    background-position: 100% 40%;
+    background-size: 200% 200%;
+  }
+  100% {
+    background-position: 100% 60%;
+    background-size: 200% 200%;
+  }
+}

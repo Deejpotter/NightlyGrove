@@ -1,54 +1,46 @@
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 
-$white: #fff;
-$gray-100: #f8f9fa;
-$gray-200: #e9ecef;
-$gray-300: #dee2e6;
-$gray-400: #ced4da;
-$gray-500: #adb5bd;
-$gray-600: #6c757d;
-$gray-700: #495057;
-$gray-800: #343a40;
-$gray-900: #212529;
-$black: #000;
-
+// Custom brand colors
 $dark-blue: #0d233f;
-$dark-green: #003d2d;
+$dark-gray: #2f2f2f;
 $accent-gold: #d4af37;
 $accent-silver: #c0c0c0;
-$deep-purple: #4b0082;
-$moon-color: #f1c40f;
+$white: #ffffff;
 
+// Theme colors based on revised preferences
 $theme-colors: (
-  primary: $deep-purple,
-  secondary: $dark-green,
-  success: $green,
-  info: $cyan,
-  warning: $yellow,
+  primary: $dark-blue,
+  secondary: $dark-gray,
+  success: $accent-gold,
+  info: $accent-silver,
+  warning: $white,
   danger: $red,
-  light: $accent-silver,
+  light: $gray-100,
   dark: $black,
 );
-$spacer: 2rem;
-$font-family-display: "Fredoka One", "Nunito", "Georgia", "Courier", "Times New Roman";
+
+// Typography
+$font-family-sans-serif: "Nunito", sans-serif;
+$font-family-display: "Josefin Sans", sans-serif;
+$headings-font-family: $font-family-display;
 $font-size-base: 1.1rem; // Assumes the browser default, typically 16px
+
+// Other custom variables
 $border-radius: 0.5rem;
 $border-radius-lg: 1rem;
 $border-radius-sm: 0.3rem;
 $enable-shadows: true;
 $enable-gradients: true;
-$jumbotron-padding: 3rem;
-$body-bg: $black;
-$body-color: $gray-500; // Updated text color for improved readability
-$headings-font-family: $font-family-display;
-$link-color: $moon-color;
-$link-hover-color: darken($moon-color, 15%);
-$navbar-dark-color: rgba($moon-color, 0.5);
-$navbar-dark-hover-color: $moon-color;
-$navbar-dark-active-color: $moon-color;
-$navbar-dark-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='#{$moon-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+$jumbotron-padding: 5rem;
+$body-bg: $dark-gray;
+$body-color: $light;
+$link-color: $accent-gold;
+$link-hover-color: darken($accent-gold, 15%);
+$navbar-dark-color: rgba($accent-gold, 0.5);
+$navbar-dark-hover-color: $accent-gold;
+$navbar-dark-active-color: $accent-gold;
+$navbar-dark-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='#{$accent-gold}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 
-// Use Bootstrap defaults for other variables, imported here so we can access all app variables in one place when used
-// in components.
+// Import Bootstrap defaults for other variables
 @import "node_modules/bootstrap/scss/variables";

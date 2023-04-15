@@ -1,0 +1,9 @@
+<div *ngFor="let sustainabilityFeature of sustainabilityFeatures">
+  <div class="card bg-dark-blue text-light">
+    <img src="{{ sustainabilityFeature.imageUrl }}" alt="{{ sustainabilityFeature.title }}" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">{{ sustainabilityFeature.title }}</h5>
+      <p class="card-text">{{ sustainabilityFeature.description }}</p>
+    </div>
+  </div>
+</div>

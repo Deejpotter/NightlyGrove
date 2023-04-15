@@ -1,0 +1,10 @@
+<div *ngFor="let blogPost of blogPosts">
+  <div class="card">
+    <img src="{{ blogPost.imageUrl }}" alt="{{ blogPost.title }}" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">{{ blogPost.title }}</h5>
+      <p class="card-text">{{ blogPost.excerpt }}</p>
+      <a href="/blog/{{ blogPost.id }}" class="btn btn-dark-blue">Read More</a>
+    </div>
+  </div>
+</div>

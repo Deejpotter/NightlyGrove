@@ -1,0 +1,29 @@
+@import "src/theme/theme-variables";
+
+.route-animations-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 0.6rem;
+  background-color: $background;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: $primary;
+  border-radius: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: darken($primary, 10);
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: $background;
+}
