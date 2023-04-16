@@ -1,3 +1,12 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<app-loader *ngIf="isLoading"></app-loader>
+<div class="page-container custom-scrollbar" *ngIf="!isLoading">
+  <app-header></app-header>
+  <div class="content-wrapper">
+    <div class="route-animations-wrapper">
+      <div [@routeAnimations]="prepareRoute(outlet)">
+        <router-outlet #outlet="outlet"></router-outlet>
+      </div>
+    </div>
+  </div>
+  <app-footer [@footerFadeIn]="footerState" class="footer-fade-in"></app-footer>
+</div>

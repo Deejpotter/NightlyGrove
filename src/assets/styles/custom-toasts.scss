@@ -1,0 +1,26 @@
+@import "src/theme/theme-variables";
+
+.toast {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 1050;
+  min-width: 250px;
+  max-width: 350px;
+  background-color: rgba($white, 0.9);
+  color: $dark-gray;
+  box-shadow: 0 0.5rem 1rem rgba($black, 0.15);
+  border-radius: $border-radius;
+}
+
+.toast-header {
+  background-color: $dark-blue;
+  color: $white;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}
+
+.toast-body {
+  font-family: $font-family-sans-serif;
+  padding: 1rem;
+}

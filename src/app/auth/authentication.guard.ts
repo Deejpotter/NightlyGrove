@@ -3,6 +3,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 
 import { Logger } from 'src/app/shared';
 import { CredentialsService } from './credentials.service';
+import { ToastService } from '@app/shared/services/toast.service';
 
 const log = new Logger('AuthenticationGuard');
 
@@ -10,13 +11,18 @@ const log = new Logger('AuthenticationGuard');
   providedIn: 'root',
 })
 export class AuthenticationGuard implements CanActivate {
-  constructor(private router: Router, private credentialsService: CredentialsService) {}
+  constructor(
+    private router: Router,
+    private credentialsService: CredentialsService,
+    private toastService: ToastService
+  ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.credentialsService.isAuthenticated()) {
       return true;
     }
 
+    this.toastService.show(`You need to be authenticated to access ${state.url}`);
     log.debug('Not authenticated, redirecting and adding redirect url...');
     this.router.navigate(['/auth'], { queryParams: { redirect: state.url }, replaceUrl: true });
     return false;

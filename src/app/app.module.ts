@@ -17,6 +17,7 @@ import { AboutComponent } from '@app/pages/about/about.component';
 import { HeaderComponent } from '@app/shared/header/header.component';
 import { CheckoutComponent } from '@app/pages/checkout/checkout.component';
 import { HomeComponent } from '@app/pages/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { HomeComponent } from '@app/pages/home/home.component';
     NgbModule,
     SharedModule,
     AuthModule,
+    BrowserAnimationsModule,
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent, HomeComponent, HeaderComponent, AboutComponent, CheckoutComponent],

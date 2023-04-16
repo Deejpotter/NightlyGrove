@@ -1,7 +1,19 @@
 @import "src/theme/theme-variables";
 
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
 .route-animations-wrapper {
-  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -11,7 +23,7 @@
 
 .custom-scrollbar::-webkit-scrollbar {
   width: 0.6rem;
-  background-color: $background;
+  background-color: $secondary;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
@@ -25,5 +37,45 @@
 
 .custom-scrollbar::-webkit-scrollbar-track {
   border-radius: 5px;
-  background-color: $background;
+  background-color: $secondary;
+}
+
+/* For Firefox */
+.scroll-container {
+  scrollbar-color: $secondary $primary;
+  scrollbar-width: thin;
+}
+
+/*--------- Animations ---------*/
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.footer-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/*--------- Bootstrap transitions ---------*/
+
+// Add hover effects and transition to all buttons
+.btn {
+  transition: all 0.3s ease;
+  box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    color: #fff;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.15);
+  }
 }

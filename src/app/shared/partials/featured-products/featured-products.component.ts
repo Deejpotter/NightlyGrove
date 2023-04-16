@@ -29,29 +29,24 @@ export class FeaturedProductsComponent implements AfterViewInit {
       image: 'https://via.placeholder.com/350x150',
     },
   ];
-  customOptions: OwlOptions = {
+
+  customOptions: any = {
     loop: true,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
-    dots: false,
-    navSpeed: 700,
-    navText: ['', ''],
+    margin: 10,
+    nav: true,
+    autoplay: true,
+    autoplayTimeout: 3000,
     responsive: {
       0: {
         items: 1,
       },
-      400: {
-        items: 2,
-      },
-      740: {
+      600: {
         items: 3,
       },
-      940: {
-        items: 4,
+      1000: {
+        items: 5,
       },
     },
-    nav: true,
   };
 
   constructor() {}

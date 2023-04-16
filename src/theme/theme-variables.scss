@@ -6,17 +6,21 @@ $dark-blue: #0d233f;
 $dark-gray: #2f2f2f;
 $accent-gold: #d4af37;
 $accent-silver: #c0c0c0;
-$white: #ffffff;
+$burnt-orange: #bc5d2e;
+$dark-teal: #1e656d;
+$forest-green: #237a3c;
+$rich-purple: #5e2c8a;
+$deep-magenta: #92278f;
 
 // Theme colors based on revised preferences
 $theme-colors: (
   primary: $dark-blue,
   secondary: $dark-gray,
-  success: $accent-gold,
-  info: $accent-silver,
-  warning: $white,
+  success: $dark-teal,
+  info: $accent-gold,
+  warning: $burnt-orange,
   danger: $red,
-  light: $gray-100,
+  light: $accent-silver,
   dark: $black,
 );
 
@@ -24,9 +28,9 @@ $theme-colors: (
 $font-family-sans-serif: "Nunito", sans-serif;
 $font-family-display: "Josefin Sans", sans-serif;
 $headings-font-family: $font-family-display;
-$font-size-base: 1.1rem; // Assumes the browser default, typically 16px
+$font-size-base: 1.1rem;
 
-// Other custom variables
+// Custom variables
 $border-radius: 0.5rem;
 $border-radius-lg: 1rem;
 $border-radius-sm: 0.3rem;
@@ -42,5 +46,93 @@ $navbar-dark-hover-color: $accent-gold;
 $navbar-dark-active-color: $accent-gold;
 $navbar-dark-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='#{$accent-gold}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 
-// Import Bootstrap defaults for other variables
-@import "node_modules/bootstrap/scss/variables";
+// Pagination
+$pagination-padding-y: 0.5rem;
+$pagination-padding-x: 0.75rem;
+$pagination-color: $link-color;
+$pagination-hover-color: $link-hover-color;
+$pagination-active-color: $link-hover-color;
+$pagination-disabled-color: $gray-600;
+
+// Additional customizations
+// Buttons
+$btn-padding-y: 0.5rem;
+$btn-padding-x: 1rem;
+$btn-border-radius: $border-radius;
+$btn-border-radius-lg: $border-radius-lg;
+$btn-border-radius-sm: $border-radius-sm;
+$btn-font-size-sm: 0.875rem;
+$btn-font-size-lg: 1.25rem;
+
+// Inputs
+$input-padding-y: 0.5rem;
+$input-padding-x: 1rem;
+$input-border-radius: $border-radius;
+$input-border-radius-lg: $border-radius-lg;
+$input-border-radius-sm: $border-radius-sm;
+$input-font-size-sm: 0.875rem;
+$input-font-size-lg: 1.25rem;
+
+// Cards
+$card-spacer-y: 1rem;
+$card-spacer-x: 1rem;
+$card-border-radius: $border-radius;
+$card-border-width: 1px;
+$card-inner-border-radius: calc(#{$card-border-radius} - 1px);
+
+// Navbar
+$navbar-padding-y: 0.5rem;
+$navbar-padding-x: 1rem;
+$nav-link-padding-y: 0.5rem;
+$nav-link-padding-x: 1rem;
+$navbar-toggler-padding-y: 0.5rem;
+$navbar-toggler-padding-x: 1rem;
+$navbar-toggler-font-size: 1.25rem;
+
+// Dropdowns
+$dropdown-padding-y: 0.5rem;
+$dropdown-padding-x: 1rem;
+$dropdown-border-radius: $border-radius;
+$dropdown-border-width: 1px;
+$dropdown-inner-border-radius: calc(#{$dropdown-border-radius} - 1px);
+
+// Breadcrumbs
+$breadcrumb-padding-y: 0.5rem;
+$breadcrumb-padding-x: 1rem;
+$breadcrumb-item-padding: 0.5rem;
+$breadcrumb-item-font-size: 1rem;
+
+// Alerts
+$alert-padding-y: 1rem;
+$alert-padding-x: 1rem;
+$alert-border-radius: $border-radius;
+$alert-font-size: 1rem;
+
+// Progress bars
+$progress-height: 1rem;
+$progress-border-radius: $border-radius;
+
+// List groups
+$list-group-item-padding-y: 0.75rem;
+$list-group-item-padding-x: 1.25rem;
+$list-group-item-border-radius: $border-radius;
+
+// Modals
+$modal-inner-padding: 1rem;
+$modal-dialog-border-radius: $border-radius;
+$modal-header-border-width: 1px;
+$modal-header-padding: 1rem;
+$modal-header-font-size: 1.25rem;
+
+// Tooltip
+$tooltip-font-size: 0.875rem;
+
+// Popover
+$popover-font-size: 1rem;
+$popover-padding-y: 0.5rem;
+$popover-padding-x: 1rem;
+$popover-border-width: 1px;
+$popover-border-radius: $border-radius;
+
+// Import Bootstrap's styles
+@import "bootstrap/scss/bootstrap";

@@ -13,13 +13,17 @@ export class ToastService {
   constructor(private toastConfig: NgbToastConfig, private ngZone: NgZone) {
     // Set global toast options
     this.toastConfig.autohide = true;
-    this.toastConfig.delay = 5000;
+    this.toastConfig.delay = 1000;
   }
 
-  show(message: string, type: ToastType = 'success'): void {
-    const dummyElementRef = new ElementRef(document.createElement('div'));
+  show(message: string, type: ToastType = 'success', options?: { autohide?: boolean; delay?: number }): void {
+    const dummyElementRef = { nativeElement: document.createElement('div') };
+    const toastConfig = new NgbToastConfig(this.toastConfig);
+    toastConfig.autohide = options?.autohide ?? this.toastConfig.autohide;
+    toastConfig.delay = options?.delay ?? this.toastConfig.delay;
+
     this.toast$.next({
-      toastInstance: new NgbToast('', this.toastConfig, this.ngZone, dummyElementRef),
+      toastInstance: new NgbToast('', toastConfig, this.ngZone, dummyElementRef),
       type,
       message,
     });

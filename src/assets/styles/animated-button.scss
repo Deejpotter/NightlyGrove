@@ -1,13 +1,19 @@
+// Custom variables for the animated button
+$animated-button-bg: $light;
+$animated-button-border-color: #6fb07f;
+$animated-button-color: #6fb07f;
+$animated-button-focus-bg: #6fb07f;
+$animated-button-focus-color: $light;
+
 .animated-button {
-  border-width: 1px;
   width: 600px;
   height: 200px;
   border-radius: 100px;
-  background: #fff;
+  background: $animated-button-bg;
   position: absolute;
-  border: 5px solid #6fb07f;
+  border: 5px solid $animated-button-border-color;
   font-size: 48px;
-  color: #6fb07f;
+  color: $animated-button-color;
   outline: none;
   cursor: pointer;
 }
@@ -48,14 +54,14 @@
   10% {
     width: 610px;
     height: 210px;
-    background: #fff;
+    background: $animated-button-bg;
     margin-left: -5px;
     margin-top: -5px;
   }
   20% {
     width: 600px;
     height: 200px;
-    background: #6fb07f;
+    background: $animated-button-focus-bg;
     margin-left: 0px;
     margin-top: 0px;
   }
@@ -64,7 +70,7 @@
     height: 200px;
     border-radius: 100px;
     margin-left: 190px;
-    background: #6fb07f;
+    background: $animated-button-focus-bg;
   }
 }
 
@@ -73,7 +79,7 @@
     opacity: 1;
   }
   20% {
-    color: #fff;
+    color: $animated-button-focus-color;
   }
   100% {
     opacity: 0;
@@ -93,7 +99,7 @@
 }
 
 html {
-  background: #fff;
+  background: $white;
 }
 
 .cont {

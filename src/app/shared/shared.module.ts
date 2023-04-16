@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { LoaderComponent } from './loader/loader.component';
+import { LoaderComponent } from '@app/shared/partials/loader/loader.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeroSectionComponent } from './partials/hero-section/hero-section.component';
 import { FeaturedProductsComponent } from './partials/featured-products/featured-products.component';
@@ -16,6 +16,7 @@ import { BrandStoryComponent } from '@app/shared/partials/brand-story/brand-stor
 import { BrandImageComponent } from '@app/shared/partials/brand-image/brand-image.component';
 import { ProductCardComponent } from './partials/product-card/product-card.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ColourSwatchComponent } from './partials/colour-swatch/colour-swatch.component';
 
 @NgModule({
   imports: [TranslateModule, CommonModule, CarouselModule],
@@ -34,6 +35,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     BrandImageComponent,
     TestimonialsComponent,
     ProductCardComponent,
+    ColourSwatchComponent,
   ],
   exports: [
     LoaderComponent,
@@ -48,6 +50,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     PartnersComponent,
     BrandImageComponent,
     BrandStoryComponent,
+    ColourSwatchComponent,
   ],
 })
 export class SharedModule {}

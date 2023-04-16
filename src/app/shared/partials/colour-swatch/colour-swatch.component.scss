@@ -1,0 +1,44 @@
+@import "src/theme/theme-variables";
+
+.color-swatch {
+  width: 100px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.dark-blue {
+  background-color: $dark-blue;
+}
+
+.dark-gray {
+  background-color: $dark-gray;
+}
+
+.accent-gold {
+  background-color: $accent-gold;
+}
+
+.accent-silver {
+  background-color: $accent-silver;
+}
+
+.burnt-orange {
+  background-color: $burnt-orange;
+}
+
+.dark-teal {
+  background-color: $dark-teal;
+}
+
+.forest-green {
+  background-color: $forest-green;
+}
+
+.rich-purple {
+  background-color: $rich-purple;
+}
+
+.deep-magenta {
+  background-color: $deep-magenta;
+}

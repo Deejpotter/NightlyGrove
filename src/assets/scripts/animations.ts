@@ -29,6 +29,12 @@ export function basicFadeAnimation() {
   ]);
 }
 
+export const footerFadeIn = trigger('footerFadeIn', [
+  state('hidden', style({ opacity: 0 })),
+  state('visible', style({ opacity: 1 })),
+  transition('hidden => visible', animate('0.5s 0.4s ease-in')),
+]);
+
 export function dropdownAnimation() {
   return trigger('dropdownAnimation', [
     state('hidden', style({ opacity: 0, transform: 'translateY(-10px)', display: 'none' })),

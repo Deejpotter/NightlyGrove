@@ -10,18 +10,5 @@
 @import "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
 
 // Theme customization
-@import "assets/custom-gradients";
+@import "assets/styles/custom-gradients";
 @import "theme/theme";
-
-/*--------- Bootstrap transitions ---------*/
-
-// Add hover effects and transition to all buttons
-.btn {
-  transition: all 0.3s ease;
-  box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
-
-  &:hover {
-    color: #fff;
-    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.15);
-  }
-}
