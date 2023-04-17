@@ -1,6 +1,19 @@
-<div *ngFor="let testimonial of testimonials" class="card testimonial-card">
-  <div class="card-body">
-    <h4 class="card-title">{{ testimonial.name }}</h4>
-    <p class="card-text">{{ testimonial.message }}</p>
+<section class="testimonials py-5">
+  <div class="container">
+    <h2 class="text-center display-6">Testimonials</h2>
+    <div class="testimonials-carousel">
+      <owl-carousel-o [options]="testimonialCarouselOptions" class="owl-theme">
+        <ng-container *ngFor="let testimonial of testimonials">
+          <ng-template carouselSlide>
+            <div class="card testimonial-card mx-4 shadow-lg">
+              <div class="card-body">
+                <h4 class="card-title">{{ testimonial.name }}</h4>
+                <p class="card-text">{{ testimonial.text }}</p>
+              </div>
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
   </div>
-</div>
+</section>

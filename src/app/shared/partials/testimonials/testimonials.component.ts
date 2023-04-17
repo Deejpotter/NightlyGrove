@@ -21,6 +21,26 @@ export class TestimonialsComponent implements OnInit {
     },
   ];
 
+  testimonialCarouselOptions = {
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 10000,
+    autoplayHoverPause: false,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      768: {
+        items: 2,
+      },
+      992: {
+        items: 3,
+      },
+    },
+    nav: false,
+    dots: false,
+  };
+
   constructor() {}
 
   ngOnInit(): void {}

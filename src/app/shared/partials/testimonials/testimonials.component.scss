@@ -1,0 +1,61 @@
+@import "src/theme/theme-variables";
+
+.testimonials {
+  .testimonial-card {
+    background-color: transparent;
+    border-radius: $border-radius;
+    height: 100%;
+
+    .card-title {
+      font-family: $font-family-display;
+      color: $accent-gold;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .card-text {
+      font-family: $font-family-sans-serif;
+      color: $light;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+  }
+
+  .testimonials-carousel {
+    position: relative;
+
+    .owl-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+
+      button.owl-prev,
+      button.owl-next {
+        position: absolute;
+        background-color: rgba($white, 0.7);
+        border: none;
+        border-radius: 50%;
+        padding: 10px;
+        font-size: 24px;
+        color: $dark-blue;
+        transition: all 0.3s ease;
+      }
+
+      button.owl-prev:hover,
+      button.owl-next:hover {
+        background-color: $accent-gold;
+        color: $white;
+      }
+
+      button.owl-prev {
+        left: 10px;
+      }
+
+      button.owl-next {
+        right: 10px;
+      }
+    }
+  }
+}
