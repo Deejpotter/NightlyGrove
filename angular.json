@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "night-owls": {
+    "nightly-grove": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -84,10 +84,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "night-owls:build:production"
+              "browserTarget": "nightly-grove:build:production"
             },
             "development": {
-              "browserTarget": "night-owls:build:development"
+              "browserTarget": "nightly-grove:build:development"
             },
             "ci": {
               "progress": false
@@ -98,7 +98,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "night-owls:build"
+            "browserTarget": "nightly-grove:build"
           }
         },
         "test": {
@@ -134,11 +134,11 @@
         "cypress-run": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "night-owls:serve"
+            "devServerTarget": "nightly-grove:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "night-owls:serve:production"
+              "devServerTarget": "nightly-grove:serve:production"
             }
           }
         },
@@ -152,18 +152,18 @@
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "night-owls:serve"
+            "devServerTarget": "nightly-grove:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "night-owls:serve:production"
+              "devServerTarget": "nightly-grove:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "night-owls",
+  "defaultProject": "nightly-grove",
   "cli": {
     "analytics": "2fe40c14-79d6-45d1-a46b-a5170fa2f5be"
   }

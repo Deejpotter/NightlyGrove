@@ -16,7 +16,7 @@
       "tools": ["prettier", "hads"],
       "utility": [],
       "deploy": "netlify",
-      "projectName": "night-owls",
+      "projectName": "nightly-grove",
       "packageManager": "npm",
       "mobile": [],
       "desktop": [],

@@ -13,13 +13,13 @@ export class BlogPostsComponent implements OnInit {
       image: 'https://via.placeholder.com/350x150',
     },
     {
-      title: 'How to Style Your Moonlit Moods Outfits',
-      summary: 'Get some fashion tips and ideas for styling your Moonlit Moods clothing...',
+      title: 'How to Style Your Nightly Grove Outfits',
+      summary: 'Get some fashion tips and ideas for styling your Nightly Grove clothing...',
       image: 'https://via.placeholder.com/350x150',
     },
     {
-      title: 'The Story of Moonlit Moods: From Idea to Reality',
-      summary: 'Discover the journey of Moonlit Moods from a simple idea to a successful fashion brand...',
+      title: 'The Story of Nightly Grove: From Idea to Reality',
+      summary: 'Discover the journey of Nightly Grove from a simple idea to a successful fashion brand...',
       image: 'https://via.placeholder.com/350x150',
     },
   ];
