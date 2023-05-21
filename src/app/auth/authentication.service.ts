@@ -24,7 +24,7 @@ export interface SignupContext {
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private apiUrl: string = 'https://tranquil-halva-766b1c.netlify.app/.netlify/identity';
+  private apiUrl: string = 'https://nightlygrove.netlify.app/.netlify/identity';
   private authClient: GoTrue;
 
   constructor(
@@ -37,6 +37,11 @@ export class AuthenticationService {
       APIUrl: this.apiUrl,
       setCookie: false,
     });
+  }
+
+  isAuthenticated(): boolean {
+    const user = this.authClient.currentUser();
+    return user != null;
   }
 
   login(context: LoginContext): Observable<Credentials> {

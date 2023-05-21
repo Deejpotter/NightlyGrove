@@ -23,8 +23,16 @@ export class HeaderComponent implements OnInit {
     this.menuHidden = !this.menuHidden;
   }
 
+  login() {
+    this.router.navigate(['/login'], { replaceUrl: true });
+  }
+
   logout() {
     this.authenticationService.logout().subscribe(() => this.router.navigate(['/'], { replaceUrl: true }));
+  }
+
+  isLoggedIn(): boolean {
+    return this.authenticationService.isAuthenticated();
   }
 
   get email(): string | null {
